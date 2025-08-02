@@ -15,9 +15,9 @@
             @csrf
             <div class="row">
                 <div class="col">
-                    <label>اسم المريض</label>
+                    <label>{{trans('invoices.patient_name')}}</label>
                     <select wire:model="patient_id" class="form-control" required>
-                        <option value=""  >-- اختار من القائمة --</option>
+                        <option value=""  >{{trans('invoices.select_patient')}}</option>
                         @foreach($Patients as $Patient)
                             <option value="{{$Patient->id}}">{{$Patient->name}}</option>
                         @endforeach
@@ -26,9 +26,9 @@
 
 
                 <div class="col">
-                    <label>اسم الدكتور</label>
+                    <label>{{trans('invoices.doctor_name')}}</label>
                     <select wire:model="doctor_id"  wire:change="get_polyclinic" class="form-control"  id="exampleFormControlSelect1" required>
-                        <option value="" >-- اختار من القائمة --</option>
+                        <option value="" >{{trans('invoices.select_doctor')}}</option>
                         @foreach($Doctors as $Doctor)
                             <option value="{{$Doctor->id}}">{{$Doctor->name}}</option>
                         @endforeach
@@ -37,16 +37,16 @@
 
 
                 <div class="col">
-                    <label>العيادة</label>
+                    <label>{{trans('invoices.polyclinic')}}</label>
                     <input wire:model="polyclinic_id" type="text" class="form-control" readonly >
                 </div>
 
                 <div class="col">
-                    <label>نوع الفاتورة</label>
+                    <label>{{trans('invoices.invoice_type')}}</label>
                     <select wire:model="type" class="form-control" {{$updateMode == true ? 'disabled':''}}>
-                        <option value="" >-- اختار من القائمة --</option>
-                        <option value="1">نقدي</option>
-                        <option value="2">اجل</option>
+                        <option value="" >{{trans('invoices.select_type')}}</option>
+                        <option value="1">{{trans('invoices.cash')}}</option>
+                        <option value="2">{{trans('invoices.deferred')}}</option>
                     </select>
                 </div>
 
@@ -67,12 +67,12 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>اسم الخدمة</th>
-                                        <th>سعر الخدمة</th>
-                                        <th>قيمة الخصم</th>
-                                        <th>نسبة الضريبة</th>
-                                        <th>قيمة الضريبة</th>
-                                        <th>الاجمالي مع الضريبة</th>
+                                        <th>{{trans('invoices.service_name')}}</th>
+                                        <th>{{trans('invoices.service_price')}}</th>
+                                        <th>{{trans('invoices.discount')}}</th>
+                                        <th>{{trans('invoices.tax')}} %</th>
+                                        <th>{{trans('invoices.tax')}}</th>
+                                        <th>{{trans('invoices.total_amount')}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -80,7 +80,7 @@
                                         <th scope="row">1</th>
                                         <td>
                                             <select wire:model="Group_id" class="form-control" wire:change="get_price" id="exampleFormControlSelect1">
-                                                <option value="">-- اختار الخدمة --</option>
+                                                <option value="">{{trans('invoices.select_service')}}</option>
                                                 @foreach($Groups as $Group)
                                                     <option value="{{$Group->id}}">{{$Group->name}}</option>
                                                 @endforeach

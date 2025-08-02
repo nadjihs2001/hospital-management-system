@@ -28,9 +28,9 @@
 
 
             <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                <label for="exampleFormControlSelect1">العيادة</label>
+                <label for="exampleFormControlSelect1">{{trans('doctors.polyclinic')}}</label>
                 <select class="form-select" name="polyclinic" wire:model="polyclinic" id="exampleFormControlSelect1">
-                    <option>-- اختار من القائمة --</option>
+                    <option>{{trans('doctors.select_polyclinic')}}</option>
                     @foreach($polyclinics as $polyclinic)
                         <option value="{{$polyclinic->id}}">{{$polyclinic->name}}</option>
                     @endforeach

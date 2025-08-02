@@ -92,7 +92,7 @@
 
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
                                     <select name="polyclinic_id" class="form-control SlectBox">
-                                        <option value="" selected disabled>------</option>
+                                        <option value="" selected disabled>{{trans('doctors.select_polyclinic')}}</option>
                                         @foreach($polyclinics as $polyclinic)
                                             <option value="{{$polyclinic->id}}">{{$polyclinic->name}}</option>
                                         @endforeach
@@ -109,7 +109,7 @@
 
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
                                     <select multiple="multiple" class="testselect2" name="appointments[]">
-                                        <option selected name="appointments[]" value="" selected disabled>-- حدد المواعيد --</option>
+                                        <option selected name="appointments[]" value="" selected disabled>{{trans('doctors.Choose')}}</option>
                                         @foreach($appointments as $appointment)
                                             <option value="{{$appointment->id}}">{{$appointment->name}}</option>
                                         @endforeach
