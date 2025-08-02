@@ -21,7 +21,7 @@ return array (
   'password' => 'كلمة المرور',
   'phone' => 'رقم الهاتف',
   'price' => 'سعر الكشف',
-  'section' => 'القسم',
+  'polyclinic' => 'العيادة',
   'submit' => 'تاكيد',
   'update_password' => 'تغير كلمة المرور',
 );

@@ -14,7 +14,7 @@ use App\Interfaces\insurances\insuranceRepositoryInterface;
 use App\Interfaces\LaboratorieEmployee\LaboratorieEmployeeRepositoryInterface;
 use App\Interfaces\Patients\PatientRepositoryInterface;
 use App\Interfaces\RayEmployee\RayEmployeeRepositoryInterface;
-use App\Interfaces\Sections\SectionRepositoryInterface;
+use App\Interfaces\Polyclinics\PolyclinicRepositoryInterface;
 use App\Interfaces\Services\SingleServiceRepositoryInterface;
 use App\Repository\Ambulances\AmbulanceRepository;
 use App\Repository\doctor_dashboard\DiagnosisRepository;
@@ -28,7 +28,7 @@ use App\Repository\insurances\insuranceRepository;
 use App\Repository\LaboratorieEmployee\LaboratorieEmployeeRepository;
 use App\Repository\Patients\PatientRepository;
 use App\Repository\RayEmployee\RayEmployeeRepository;
-use App\Repository\Sections\SectionRepository;
+use App\Repository\Polyclinics\PolyclinicRepository;
 use App\Repository\Services\SingleServiceRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -42,7 +42,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         //admin
-        $this->app->bind(SectionRepositoryInterface::class, SectionRepository::class);
+        $this->app->bind(PolyclinicRepositoryInterface::class, PolyclinicRepository::class);
         $this->app->bind(DoctorRepositoryInterface::class, DoctorRepository::class);
         $this->app->bind(SingleServiceRepositoryInterface::class, SingleServiceRepository::class);
         $this->app->bind(insuranceRepositoryInterface::class, insuranceRepository::class);

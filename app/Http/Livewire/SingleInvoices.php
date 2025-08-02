@@ -23,7 +23,7 @@ class SingleInvoices extends Component
     public $username;
     public $tax_rate = 17;
     public $updateMode = false;
-    public $price,$discount_value = 0 ,$patient_id,$doctor_id,$section_id,$type,$Service_id,$single_invoice_id,$catchError;
+    public $price,$discount_value = 0 ,$patient_id,$doctor_id,$polyclinic_id,$type,$Service_id,$single_invoice_id,$catchError;
 
 
     public function mount(){
@@ -55,7 +55,7 @@ class SingleInvoices extends Component
         return Redirect::route('Print_single_invoices',[
             'invoice_date' => $single_invoice->invoice_date,
             'doctor_id' => $single_invoice->Doctor->name,
-            'section_id' => $single_invoice->Section->name,
+            'polyclinic_id' => $single_invoice->Polyclinic->name,
             'Service_id' => $single_invoice->Service->name,
             'type' => $single_invoice->type,
             'price' => $single_invoice->price,
@@ -66,10 +66,10 @@ class SingleInvoices extends Component
 
     }
 
-    public function get_section()
+    public function get_polyclinic()
     {
-        $doctor_id = Doctor::with('section')->where('id', $this->doctor_id)->first();
-        $this->section_id = $doctor_id->section->name;
+        $doctor_id = Doctor::with('polyclinic')->where('id', $this->doctor_id)->first();
+        $this->polyclinic_id = $doctor_id->polyclinic->name;
 
     }
 
@@ -87,7 +87,7 @@ class SingleInvoices extends Component
         $this->single_invoice_id = $single_invoice->id;
         $this->patient_id = $single_invoice->patient_id;
         $this->doctor_id = $single_invoice->doctor_id;
-        $this->section_id = DB::table('section_translations')->where('id', $single_invoice->section_id)->first()->name;
+        $this->polyclinic_id = DB::table('polyclinic_translations')->where('polyclinic_id', $single_invoice->polyclinic_id)->first()->name;
         $this->Service_id = $single_invoice->Service_id;
         $this->price = $single_invoice->price;
         $this->discount_value = $single_invoice->discount_value;
@@ -114,7 +114,7 @@ class SingleInvoices extends Component
                     $single_invoices->invoice_date = date('Y-m-d');
                     $single_invoices->patient_id = $this->patient_id;
                     $single_invoices->doctor_id = $this->doctor_id;
-                    $single_invoices->section_id = DB::table('section_translations')->where('name', $this->section_id)->first()->section_id;
+                    $single_invoices->polyclinic_id = DB::table('polyclinic_translations')->where('name', $this->polyclinic_id)->first()->polyclinic_id;
                     $single_invoices->Service_id = $this->Service_id;
                     $single_invoices->price = $this->price;
                     $single_invoices->discount_value = $this->discount_value;
@@ -146,7 +146,7 @@ class SingleInvoices extends Component
                     $single_invoices->invoice_date = date('Y-m-d');
                     $single_invoices->patient_id = $this->patient_id;
                     $single_invoices->doctor_id = $this->doctor_id;
-                    $single_invoices->section_id = DB::table('section_translations')->where('name', $this->section_id)->first()->section_id;
+                    $single_invoices->polyclinic_id = DB::table('polyclinic_translations')->where('name', $this->polyclinic_id)->first()->polyclinic_id;
                     $single_invoices->Service_id = $this->Service_id;
                     $single_invoices->price = $this->price;
                     $single_invoices->discount_value = $this->discount_value;
@@ -211,7 +211,7 @@ class SingleInvoices extends Component
                     $single_invoices->invoice_date = date('Y-m-d');
                     $single_invoices->patient_id = $this->patient_id;
                     $single_invoices->doctor_id = $this->doctor_id;
-                    $single_invoices->section_id = DB::table('section_translations')->where('name', $this->section_id)->first()->section_id;
+                    $single_invoices->polyclinic_id = DB::table('polyclinic_translations')->where('name', $this->polyclinic_id)->first()->polyclinic_id;
                     $single_invoices->Service_id = $this->Service_id;
                     $single_invoices->price = $this->price;
                     $single_invoices->discount_value = $this->discount_value;
@@ -244,7 +244,7 @@ class SingleInvoices extends Component
                     $single_invoices->invoice_date = date('Y-m-d');
                     $single_invoices->patient_id = $this->patient_id;
                     $single_invoices->doctor_id = $this->doctor_id;
-                    $single_invoices->section_id = DB::table('section_translations')->where('name', $this->section_id)->first()->section_id;
+                    $single_invoices->polyclinic_id = DB::table('polyclinic_translations')->where('name', $this->polyclinic_id)->first()->polyclinic_id;
                     $single_invoices->Service_id = $this->Service_id;
                     $single_invoices->price = $this->price;
                     $single_invoices->discount_value = $this->discount_value;

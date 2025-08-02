@@ -23,8 +23,8 @@ class group_invoice extends Model
         return $this->belongsTo(Doctor::class,'doctor_id');
     }
 
-    public function Section()
+    public function Polyclinic()
     {
-        return $this->belongsTo(Section::class,'section_id');
+        return $this->belongsTo(Polyclinic::class,'polyclinic_id');
     }
 }

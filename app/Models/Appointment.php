@@ -11,15 +11,15 @@ class Appointment extends Model
     //use Translatable;
     use HasFactory;
     //public $translatedAttributes = ['name'];
-    public $fillable= ['name','email','phone','notes','doctor_id','section_id','type','appointment'];
+    public $fillable= ['name','email','phone','notes','doctor_id','polyclinic_id','type','appointment'];
 
     public function doctor()
     {
         return $this->belongsTo(Doctor::class,'doctor_id');
     }
 
-    public function section()
+    public function polyclinic()
     {
-        return $this->belongsTo(Section::class,'section_id');
+        return $this->belongsTo(Polyclinic::class,'polyclinic_id');
     }
 }

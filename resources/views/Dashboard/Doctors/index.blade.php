@@ -45,7 +45,7 @@
                                 <th>{{trans('doctors.name')}}</th>
                                 <th>{{trans('doctors.img')}}</th>
                                 <th>{{trans('doctors.email')}}</th>
-                                <th>{{trans('doctors.section')}}</th>
+                                <th>{{trans('doctors.polyclinic')}}</th>
                                 <th>{{trans('doctors.phone')}}</th>
                                 <th>{{trans('doctors.appointments')}}</th>
                                 <th>{{trans('doctors.Status')}}</th>
@@ -72,7 +72,7 @@
                                         @endif
                                     </td>
                                     <td>{{ $doctor->email }}</td>
-                                    <td>{{ $doctor->section->name}}</td>
+                                    <td>{{ $doctor->polyclinic->name ?? 'N/A'}}</td>
                                     <td>{{ $doctor->phone}}</td>
                                     <td>
                                         @foreach($doctor->doctorappointments as $appointment)

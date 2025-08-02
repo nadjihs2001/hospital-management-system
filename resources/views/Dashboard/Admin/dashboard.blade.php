@@ -67,12 +67,12 @@
 						<div class="card overflow-hidden sales-card bg-success-gradient">
 							<div class="pl-3 pt-3 pr-3 pb-2 pt-0">
 								<div class="">
-									<h6 class="mb-3 tx-12 text-white">عدد الاقسام</h6>
+									<h6 class="mb-3 tx-12 text-white">عدد العيادات</h6>
 								</div>
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{App\Models\Section::count()}}</h4>
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{App\Models\Polyclinic::count()}}</h4>
 										</div>
 									</div>
 								</div>

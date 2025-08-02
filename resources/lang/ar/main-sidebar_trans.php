@@ -10,6 +10,6 @@ return array (
   'doctors' => 'الاطباء',
   'group_services' => 'مجموعة خدمات',
   'index' => 'الرئيسية',
-  'sections' => 'الاقسام',
+  'polyclinics' => 'العيادات',
   'view_all' => 'عرض الكل',
 );

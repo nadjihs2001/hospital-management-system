@@ -13,10 +13,10 @@ class CreatePivotServiceGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('Service_Group', function (Blueprint $table) {
+        Schema::create('service_Group', function (Blueprint $table) {
             $table->id();
             $table->foreignId('Group_id')->references('id')->on('groups')->onDelete('cascade');
-            $table->foreignId('Service_id')->references('id')->on('Services')->onDelete('cascade');
+            $table->foreignId('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->integer('quantity');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreatePivotServiceGroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Service_Group');
+        Schema::dropIfExists('service_Group');
     }
 }

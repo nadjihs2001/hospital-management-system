@@ -23,7 +23,7 @@ class GroupInvoices extends Component
     public $Group_id;
     public $catchError;
     public $price = 0;
-    public $patient_id,$doctor_id,$section_id,$type;
+    public $patient_id,$doctor_id,$polyclinic_id,$type;
     public $discount_value = 0;
     public $tax_rate = 0;
 
@@ -47,10 +47,10 @@ class GroupInvoices extends Component
     }
 
 
-    public function get_section()
+    public function get_polyclinic()
     {
-        $doctor_id = Doctor::with('section')->where('id', $this->doctor_id)->first();
-        $this->section_id = $doctor_id->section->name;
+        $doctor_id = Doctor::with('polyclinic')->where('id', $this->doctor_id)->first();
+        $this->polyclinic_id = $doctor_id->polyclinic->name;
     }
 
     public function get_price()
@@ -254,7 +254,7 @@ class GroupInvoices extends Component
         return Redirect::route('group_Print_single_invoices',[
             'invoice_date' => $single_invoice->invoice_date,
             'doctor_id' => $single_invoice->Doctor->name,
-            'section_id' => $single_invoice->Section->name,
+            'polyclinic_id' => $single_invoice->Polyclinic->name,
             'Group_id' => $single_invoice->Group->name,
             'type' => $single_invoice->type,
             'price' => $single_invoice->price,

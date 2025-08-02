@@ -95,14 +95,14 @@
                             <div class="row row-xs align-items-center mg-b-20">
                                 <div class="col-md-1">
                                     <label for="exampleInputEmail1">
-                                        {{trans('doctors.section')}}</label>
+                                        {{trans('doctors.polyclinic')}}</label>
                                 </div>
 
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <select name="section_id" class="form-control SlectBox">
-                                        @foreach($sections as $section)
+                                    <select name="polyclinic_id" class="form-control SlectBox">
+                                        @foreach($polyclinics as $polyclinic)
                                             <option
-                                                value="{{$section->id}}" {{$section->id == $doctor->section_id ? 'selected':"" }}>{{$section->name}}</option>
+                                                value="{{$polyclinic->id}}" {{$polyclinic->id == $doctor->polyclinic_id ? 'selected':"" }}>{{$polyclinic->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

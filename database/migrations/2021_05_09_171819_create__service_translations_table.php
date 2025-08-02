@@ -13,12 +13,13 @@ class CreateServiceTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Service_translations', function (Blueprint $table) {
+        Schema::create('service_translations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->string('locale')->index();
             $table->string('name');
-            $table->unique(['Service_id','locale','name']);
-            $table->foreignId('Service_id')->references('id')->on('Services')->onDelete('cascade');
+            $table->unique(['service_id','locale']);
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateServiceTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Service_translations');
+        Schema::dropIfExists('service_translations');
     }
 }

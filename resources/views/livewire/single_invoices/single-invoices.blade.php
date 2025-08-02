@@ -37,7 +37,7 @@
 
                     <div class="col">
                         <label>اسم الدكتور</label>
-                        <select wire:model="doctor_id"  wire:change="get_section" class="form-control"  id="exampleFormControlSelect1" required>
+                        <select wire:model="doctor_id"  wire:change="get_polyclinic" class="form-control"  id="exampleFormControlSelect1" required>
                             <option value="" >-- اختار من القائمة --</option>
                             @foreach($Doctors as $Doctor)
                                 <option value="{{$Doctor->id}}">{{$Doctor->name}}</option>
@@ -47,8 +47,8 @@
 
 
                     <div class="col">
-                        <label>القسم</label>
-                        <input wire:model="section_id" type="text" class="form-control" readonly >
+                        <label>العيادة</label>
+                        <input wire:model="polyclinic_id" type="text" class="form-control" readonly >
                     </div>
 
                     <div class="col">

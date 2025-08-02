@@ -1,0 +1,27 @@
+<?php
+
+return array (
+  'Choose' => 'Choisir',
+  'Enabled' => 'Activé',
+  'Not_enabled' => 'Désactivé',
+  'Processes' => 'Processus',
+  'Status' => 'Statut',
+  'Status_change' => 'Changement de statut',
+  'add_doctor' => 'Ajouter un médecin',
+  'appointments' => 'rendez-vous',
+  'confirm_password' => 'Confirmer le mot de passe',
+  'created_at' => 'créé le',
+  'delete_doctor' => 'Supprimer le médecin',
+  'delete_select' => 'Supprimer les médecins sélectionnés',
+  'doctor_photo' => 'Photo du médecin',
+  'email' => 'Email',
+  'img' => 'image',
+  'name' => 'Nom du médecin',
+  'new_password' => 'Nouveau mot de passe',
+  'password' => 'mot de passe',
+  'phone' => 'téléphone',
+  'price' => 'prix',
+  'polyclinic' => 'Polyclinique',
+  'submit' => 'soumettre',
+  'update_password' => 'Mettre à jour le mot de passe',
+);

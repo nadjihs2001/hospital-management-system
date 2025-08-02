@@ -1,4 +1,4 @@
 <?php
 return array (
-    'sections' => 'Sections',
+    'polyclinics' => 'Polyclinics',
 );

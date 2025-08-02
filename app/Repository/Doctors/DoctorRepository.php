@@ -5,7 +5,7 @@ use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Image;
-use App\Models\Section;
+use App\Models\Polyclinic;
 use App\Traits\UploadTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -17,15 +17,15 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     public function index()
     {
-        $doctors = Doctor::with('doctorappointments')->get();
+        $doctors = Doctor::with('doctorappointments', 'polyclinic')->get();
         return view('Dashboard.Doctors.index',compact('doctors'));
     }
 
     public function create()
     {
-        $sections = Section::all();
+        $polyclinics = Polyclinic::all();
         $appointments = Appointment::all();
-        return view('Dashboard.Doctors.add',compact('sections','appointments'));
+        return view('Dashboard.Doctors.add',compact('polyclinics','appointments'));
     }
 
 
@@ -38,7 +38,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors = new Doctor();
             $doctors->email = $request->email;
             $doctors->password = Hash::make($request->password);
-            $doctors->section_id = $request->section_id;
+            $doctors->polyclinic_id = $request->polyclinic_id;
             $doctors->phone = $request->phone;
             $doctors->status = 1;
             $doctors->save();
@@ -76,7 +76,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor = Doctor::findorfail($request->id);
 
             $doctor->email = $request->email;
-            $doctor->section_id = $request->section_id;
+            $doctor->polyclinic_id = $request->polyclinic_id;
             $doctor->phone = $request->phone;
             $doctor->save();
             // store trans
@@ -145,10 +145,10 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     public function edit($id)
     {
-        $sections = Section::all();
+        $polyclinics = Polyclinic::all();
         $appointments = Appointment::all();
         $doctor = Doctor::findorfail($id);
-        return view('Dashboard.Doctors.edit',compact('sections','appointments','doctor'));
+        return view('Dashboard.Doctors.edit',compact('polyclinics','appointments','doctor'));
     }
 
     public function update_password($request)

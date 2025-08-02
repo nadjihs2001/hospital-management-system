@@ -10,6 +10,6 @@ return array (
   'doctors' => 'Doctors',
   'group_services' => 'Group Services',
   'index' => 'Home',
-  'sections' => 'Sections',
+  'polyclinics' => 'Polyclinics',
   'view_all' => 'view_all',
 );

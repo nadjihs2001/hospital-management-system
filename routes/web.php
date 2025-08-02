@@ -28,6 +28,13 @@ Route::group(
 
 });
 
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin', fn () => view('admin.dashboard'))->name('admin.dashboard');
+});
+
+Route::middleware(['auth', 'role:medecin'])->group(function () {
+    Route::get('/medecin', fn () => view('medecin.dashboard'))->name('medecin.dashboard');
+});
 
 
 
@@ -35,3 +42,13 @@ Route::group(
 
 
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

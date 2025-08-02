@@ -11,15 +11,21 @@ class Patient extends Authenticatable
     use Translatable;
     use HasFactory;
     public $translatedAttributes = ['name','Address'];
-    public $fillable= ['email','Password','Date_Birth','Phone','Gender','Blood_Group'];
+    public $fillable= ['email','password','date_birth','phone','gender','blood_group'];
 
-    public function doctor()
+    public function invoices()
     {
-        return $this->belongsTo(Invoice::class,'doctor_id');
+        return $this->hasMany(Invoice::class);
     }
 
-    public function service()
+    public function appointments()
     {
-        return $this->belongsTo(Invoice::class,'Service_id');
+        return $this->hasMany(Appointment::class);
+    }
+
+    // Many to Many relationship with doctors through appointments
+    public function doctors()
+    {
+        return $this->belongsToMany(Doctor::class, 'appointments');
     }
 }
