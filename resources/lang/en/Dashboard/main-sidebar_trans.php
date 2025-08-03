@@ -33,6 +33,8 @@ return [
      'Insurance'=>'Insurance',
      'ambulance'=>'Ambulance',
      'Ambulance_calls'=>'Ambulance calls',
+     'other_structures'=>'Other Structures',
+     'structure_management'=>'Structure Management',
      'laboratory'=>'Laboratory',
      'laboratory_employees'=>'Laboratory Employees',
      'radiology'=>'Radiology',

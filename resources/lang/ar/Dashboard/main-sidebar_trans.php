@@ -33,6 +33,8 @@ return [
    'Insurance'=>'شركات التأمين',
    'ambulance'=>'الإسعاف',
    'Ambulance_calls'=>'مكالمات الإسعاف',
+   'other_structures'=>'الهياكل الأخرى',
+   'structure_management'=>'إدارة الهياكل',
    'laboratory'=>'المختبر',
    'laboratory_employees'=>'موظفو المختبر',
    'radiology'=>'الأشعة',

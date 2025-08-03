@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\InsuranceController;
 use App\Http\Controllers\Dashboard\LaboratorieEmployeeController;
+use App\Http\Controllers\Dashboard\OtherStructureController;
 use App\Http\Controllers\Dashboard\PatientController;
 use App\Http\Controllers\Dashboard\PaymentAccountController;
 use App\Http\Controllers\Dashboard\RayEmployeeController;
@@ -159,6 +160,13 @@ Route::group(
 
     });
 
+    //################################ Other Structures ########################################
+    Route::group(['middleware' => ['auth:admin']], function () {
+        Route::resource('other-structures', OtherStructureController::class);
+        Route::get('other-structures-by-type', [OtherStructureController::class, 'getByType'])->name('other-structures.by-type');
+        Route::get('other-structures-nearby', [OtherStructureController::class, 'getNearby'])->name('other-structures.nearby');
+    });
+    //################################ End Other Structures ####################################
 
     require __DIR__.'/auth.php';
 
